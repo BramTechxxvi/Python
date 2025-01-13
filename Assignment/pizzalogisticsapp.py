@@ -1,7 +1,15 @@
 amountperparcel = 0
 basepay = 5000
 
-collectionrate = int(input("Enter successful delivery: "))
+while True:
+	try:
+		collectionrate = int(input("Enter successful delivery: "))
+		if collectionrate > 0:
+			break
+		else:
+			print("Invalid Input \nKindly enter again")
+	except ValueError:
+		print("Invalid Input \nKindly enter again")
 
 if collectionrate < 50:
 	amountperparcel = 160

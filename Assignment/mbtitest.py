@@ -1,0 +1,1 @@
+amidat = input("")

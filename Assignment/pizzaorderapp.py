@@ -1,3 +1,4 @@
+import math
 print("""
 		<<<WELCOME TO IYA MOSES PIZZA Joint>>> 
 
@@ -16,9 +17,15 @@ print("""
 		|_______________|_________________|______________|
 
 """)
-
-numberofguest = int(input("Number Of Guest: "))
-
+while True:
+	try:
+		numberofguest = int(input("Number Of Guest: "))
+		if numberofguest > 0:
+			break
+		else:
+			print("invalid Input \nKindly enter again")
+	except ValueError:
+		print("Invalid Input \n Kindly enter again")
 pizzatype = input("""
 		Enter Preferred Pizza Type: 
 		
@@ -29,16 +36,12 @@ pizzatype = input("""
 
 """).strip().lower()
 
-slicesperbox = 0
-priceperbox = 0
-
-
 if pizzatype.lower() == "sapa size":
 	slicesperbox = 4
 	priceperbox = 2500
 
 elif pizzatype.lower() == "small money":
-	slicesperbox = 6
+	slicesplowererbox = 6
 	priceperbox = 2900
 
 elif pizzatype.lower() == "big boys":
@@ -52,15 +55,14 @@ elif pizzatype.lower() == "odogwu":
 else:
 	print("invalid order \nKindly enter order again.")
 
-boxesneeded = (numberofguest + slicesperbox - 1) // slicesperbox
+boxesneeded = math.ceil(numberofguest / slicesperbox)
 totalslices = boxesneeded * slicesperbox
 leftoverslices = totalslices - numberofguest
 totalprice = boxesneeded * priceperbox
 print(f""" 
 	Number of box(es) to buy = {boxesneeded} box(es). 
 	{pizzatype} size contains {slicesperbox} slices per box.
-	{boxesneeded} box(es) should be sufficient for {numberofguest} peron(s) as it would contain {totalslices} in all.
+	{boxesneeded} box(es) should be sufficient for {numberofguest} persson(s) as it would contain {totalslices} in all.
 	Number of left over slices after serving = {leftoverslices} slice(s).
 	Price = {totalprice}
 	""")
-
