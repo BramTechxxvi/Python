@@ -29,5 +29,5 @@ elif day_of_the_week == 5:
 elif day_of_the_week == 6:
 	weekdays_list[6] = "Saturday"
 
-print(f"{weekdays_list}")
+print(")
 	

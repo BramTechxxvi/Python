@@ -21,6 +21,6 @@ while True:
 			break 
 	    
 		case _:
-			print("Invalid option")
+			print("\n\nInvalid option \nKindly select an option")
 
 	
