@@ -3,10 +3,9 @@ import datetime
 def get_totalexpenses(numbers1):
 	total = 0
 	for num in numbers1:
-		if num.isalpha() or num < 0:
-			print("Invalid input")
-		total+=num
-	return float(total)
+		if isinstance(num, str) or num < 0: print("Invalid input")
+		total+= num
+	return total
 
 addexpense = []
 addamount = []
@@ -32,13 +31,11 @@ while True:
 					if description.isalpha(): 
 						addexpense.append(description)
 						break
-					else:
-						print("\nInvalid input. Enter ony alphabets")
+					else: print("\nInvalid input. Enter ony alphabets")
 			while True:
 				try:
 					amount = float(input("Enter amount: "))
-					if amount <= 0:
-						print("\nInvalid input... Kindly enter amount again")
+					if amount <= 0: print("\nInvalid input... Kindly enter amount again")
 					else:
 						addamount.append(amount)
 						print("\nExpense added succesfully \n")
@@ -46,8 +43,7 @@ while True:
 				except ValueError:
 					print("\nInvalid input... Enter amount again")
 		case 2:		
-			if not addexpense:
-				print("\nNo expenses to view yet... Choose from below")
+			if not addexpense: print("\nNo expenses to view yet... Choose from below")
 			else:
 				print("Date			Description		Amount")
 				print("===============================================================")
@@ -57,7 +53,7 @@ while True:
 		case 3:
 			print(f"\nTotal Expenses is: {get_totalexpenses(addamount)} \n")
 		case 4:
-			print("Thank You for using Semicolon Expense Trcaker APP!")
+			print("Thank You for using Semicolon Expense Tracker App")
 			break
 		case _:
 			print("\nInvalid option... Kindly enter between 1 - 4")
