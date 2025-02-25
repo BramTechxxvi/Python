@@ -13,7 +13,6 @@ def get_riders_wage(number1):
 	riders_wage = (number1 * amount_per_parcel) + base_pay
 	return riders_wage
 
-
 def main():
 	while True:
 		try:

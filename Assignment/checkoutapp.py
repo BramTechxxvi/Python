@@ -1,8 +1,6 @@
-class Checkoutapp:
-	def main():
-		pass
 
-while True
+
+while True:
 
 	customername = input("Enter Customer's Name? ")
 	item_bought = input("Enter Product Name? ")
@@ -28,7 +26,7 @@ while True
 			print("Invalid input \nKindly enter again")
 	while True:
 		addmoreitems = input("Would you like to add more items? ")
-			if addmoreitems.lower == "NO"
+		if addmoreitems.lower == "NO":
 				break
 		
 	
