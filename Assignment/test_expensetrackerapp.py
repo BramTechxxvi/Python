@@ -4,13 +4,14 @@ import expensetrackerapp
 class TestExpenseTrackerApp(unittest.TestCase):
 
     def test_that_date_function_exist(self):
-        date = 2025-02-12
+        date = '2025-02-12'
         expensetrackerapp.get_date(date)
     
-    def test_kk_jj_kkk_(self):
+    def test_that_function_returns_date(self):
+         pass
     
-
-    def test_kk_jj_kkk_(self):
+    #def test_kk_jj__(self):
+         
 
     def test_that_total_function_exist(self):
         list1 = [9, 10, 15]

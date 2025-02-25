@@ -1,12 +1,13 @@
 import datetime
 
-def get_date(userinput):
+def get_date(userdate, currentdates):
 	pass
 
 def get_description(userinput):
-	if not userinput.replace(" ", ""):
-		return "Invalid.. input"
-	return userinput
+	while True:
+		if not userinput.strip():
+			return "Invalid... input"
+		return userinput
 
 def get_amount(userinput):
 	while True:
@@ -35,7 +36,7 @@ def get_totalexpenses(numbers):
 	total = 0
 	for num in numbers:
 		if isinstance(num, str) or num < 0:
-			return 'Invalid... input'
+			return 'Invalid input...'
 		total+= num
 	return float(total)
 
@@ -49,6 +50,7 @@ def main():
 	addate = []
 	currentdate = datetime.date.today()
 	print("	Welcome to Semicolon Expense Tracker App 	\n======================================== \n")
+
 	while True:
 		try:	
 			choice = int(input("1. Add an expense \n2. View all expense \n3. Calculate total expenses \n4. Exit \n\nSelect an option: "))
@@ -59,11 +61,14 @@ def main():
 			case 1:
 				date = input(f"Enter date (default:{currentdate}):")
 
-				description = input("Enter description: ")
-				addexpense.append(description)
+				description = input("Enter description: ").strip()
+				description = get_description(description)
+				
 				print(get_description(description))
+				addexpense.append(description)
+		
 			case 2:		
-				print(get_view_expenses(description, date, amount))
+				print(get_view_expenses(addexpense, addate, addamount))
 			case 3:
 				print(f"\nTotal Expenses is: {get_totalexpenses(addamount)} \n")
 			case 4:
