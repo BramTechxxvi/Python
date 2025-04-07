@@ -1,13 +1,15 @@
 import datetime
 
-def get_date(userdate, currentdates):
+def get_date(user_date, current_dates):
 	pass
 
 def get_description(userinput):
 	while True:
 		if not userinput.strip():
 			return "Invalid... input"
-		return userinput
+		else:
+			break
+	return userinput
 
 def get_amount(userinput):
 	while True:
@@ -15,9 +17,11 @@ def get_amount(userinput):
 			input(userinput)
 			if userinput <= 0:
 				return "Invalid input... Kindly enter amount again"
+			elif isinstance(userinput, str):
+				return "invalid input"
+				
 			else:
-				return "Expense added succesfully"
-				break
+				return "Expense added successfully"
 		except ValueError:		
 			return "Invalid"
 		
@@ -32,7 +36,7 @@ def get_view_expenses(list1, list2, list3):
 		output+= "\n ========================================================================= \n"
 		return output
 
-def get_totalexpenses(numbers):
+def get_total_expenses(numbers):
 	total = 0
 	for num in numbers:
 		if isinstance(num, str) or num < 0:
@@ -45,10 +49,10 @@ def get_exit():
 
 
 def main():
-	addexpense = []
-	addamount = []
-	addate = []
-	currentdate = datetime.date.today()
+	add_expense = []
+	add_amount = []
+	add_date = []
+	current_date = datetime.date.today()
 	print("	Welcome to Semicolon Expense Tracker App 	\n======================================== \n")
 
 	while True:
@@ -59,18 +63,22 @@ def main():
 				continue
 		match choice:
 			case 1:
-				date = input(f"Enter date (default:{currentdate}):")
-
-				description = input("Enter description: ").strip()
+				date = input(f"Enter date (default:{current_date}): ")
+				date = current_date
+				add_date.append(date)
+				description = input("Enter description: ")
 				description = get_description(description)
-				
-				print(get_description(description))
-				addexpense.append(description)
-		
+				if description.startswith("invalid"):
+					print(description)
+					continue
+				add_expense.append(description)
+				amount = int(input("Enter amount: "))
+				amount = get_amount(amount)
+				add_amount.append(amount)
 			case 2:		
-				print(get_view_expenses(addexpense, addate, addamount))
+				print(get_view_expenses(add_expense, add_date, add_amount))
 			case 3:
-				print(f"\nTotal Expenses is: {get_totalexpenses(addamount)} \n")
+				print(f"\nTotal Expenses is: {get_total_expenses(add_amount)} \n")
 			case 4:
 				print(get_exit())
 				break

@@ -1,5 +1,3 @@
-
-
 while True:
 
 	customername = input("Enter Customer's Name? ")
@@ -30,7 +28,6 @@ while True:
 				break
 		
 	
-
 cashier_name = input("What is your name: ")
 
 while True:

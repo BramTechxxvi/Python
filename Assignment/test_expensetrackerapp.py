@@ -25,10 +25,10 @@ class TestExpenseTrackerApp(unittest.TestCase):
 
     def test_that_total_function_can_sum(self):
         list1 = [80, 10 , 15]
-        actual = expensetrackerapp.get_totalexpenses(list1)
+        actual = expensetrackerapp.get_total_expenses(list1)
         result = 105
         self.assertEqual(actual, result)
 
 
-if __name__ == "__main__":
-	unittest.main()
+    if __name__ == "__main__":
+        unittest.main()
