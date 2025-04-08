@@ -13,25 +13,24 @@ class AutomaticBike:
 
     def switch_off_bike(self):
         self.start_bike = False
+        self.accelerate = 0
         return False
 
     def set_gear(self, gear):
-        if gear <=1 or gear <=4:
+        if 1<= gear <=4:
             self.currentGear = gear
 
     def accelerate_bike(self):
         if self.start_bike:
             match self.currentGear:
                 case 1:
-                    if self.accelerate <= 20: self.accelerate+=1
+                    if self.accelerate < 20: self.accelerate+=1
                 case 2:
-                    if self.accelerate <= 30: self.accelerate+=2
+                    if self.accelerate < 30: self.accelerate+=2
                 case 3:
-                    if self.accelerate <= 40: self.accelerate+=3
+                    if self.accelerate < 40: self.accelerate+=3
                 case 4:
-                    if self.accelerate == 41 and self.accelerate > 41: self.accelerate+=4
-                case _:
-                    return
+                    self.accelerate+=4
         return self.accelerate
 
     def decelerate_bike(self):
@@ -40,13 +39,11 @@ class AutomaticBike:
                 case 1:
                     if self.accelerate < 20: self.accelerate -= 1
                 case 2:
-                    if self.accelerate <= 30: self.accelerate -= 2
+                    if self.accelerate < 30: self.accelerate -= 2
                 case 3:
-                    if self.accelerate <= 40: self.accelerate -= 3
+                    if self.accelerate > 0: self.accelerate -= 3
                 case 4:
-                    if self.accelerate == 41 and self.accelerate > 41: self.accelerate -= 4
-                case _:
-                    return
+                    self.accelerate -= 4
         return self.accelerate
 
     def get_speed(self): return self.accelerate

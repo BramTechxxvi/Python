@@ -79,6 +79,6 @@ class AutomaticBikeTest(unittest.TestCase):
         bike_control = AutomaticBike()
         bike_control.switch_on_bike()
         bike_control.set_gear(4)
-        for num in range(3): bike_control.accelerate_bike()
+        for num in range(11): bike_control.accelerate_bike()
         bike_control.decelerate_bike()
-        self.assertEqual(bike_control.get_speed(), 8)
+        self.assertEqual(bike_control.get_speed(), 40)
