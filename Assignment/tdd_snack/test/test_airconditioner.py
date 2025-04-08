@@ -9,10 +9,6 @@ class TestAirConditioner(unittest.TestCase):
         my_switch = AirConditioner()
         self.assertEqual(my_switch.is_on, False)
 
-    def test_that_ac_is_off(self):
-        my_switch = AirConditioner()
-        self.assertFalse(my_switch.is_on)
-
     def test_that_function_can_switch_ac_on(self):
         my_switch = AirConditioner()
         self.assertTrue(my_switch.switch_on_ac())
@@ -23,21 +19,19 @@ class TestAirConditioner(unittest.TestCase):
 
     def test_that_temperature_cannot_change_when_off(self):
         my_switch = AirConditioner()
-        self.assertEqual(my_switch.increase_temperature, 30)
+        self.assertEqual(my_switch.increase_temperature(), 16)
         self.assertEqual(my_switch.decrease_temperature(), 16)
 
     def test_that_function_can_increase_temperature(self):
         my_switch = AirConditioner()
         self.assertTrue(my_switch.switch_on_ac())
         self.assertEqual(my_switch.increase_temperature(),17)
-        for num in range(1, 21):
-            my_switch.increase_temperature()
+        for num in range(1, 21): my_switch.increase_temperature()
         self.assertEqual(my_switch.get_temperature(), 30)
 
     def test_that_function_can_decrease_temperature(self):
         my_switch = AirConditioner()
         self.assertTrue(my_switch.switch_on_ac())
         self.assertEqual(my_switch.increase_temperature() + 4, 21)
-        for num in range(1, 10):
-            my_switch.decrease_temperature()
+        for num in range(1, 10): my_switch.decrease_temperature()
         self.assertEqual(my_switch.get_temperature(), 16)
