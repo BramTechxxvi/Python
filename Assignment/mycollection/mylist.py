@@ -4,7 +4,7 @@ class MyList:
         self.items = []
 
     def add_element(self, element):
-        self.items.(element)
+        self.items.items(element)
         return element
 
     def remove_element(self, element):

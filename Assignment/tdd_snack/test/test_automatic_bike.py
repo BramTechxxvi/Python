@@ -82,3 +82,6 @@ class AutomaticBikeTest(unittest.TestCase):
         for num in range(11): bike_control.accelerate_bike()
         bike_control.decelerate_bike()
         self.assertEqual(bike_control.get_speed(), 40)
+
+if __name__ == '__main__':
+    unittest.main()

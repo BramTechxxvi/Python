@@ -12,6 +12,7 @@ class AirConditioner:
 
     def switch_off_ac(self):
         self.is_on = False
+        self.temperature = 0
         return False
 
     def increase_temperature(self):
@@ -30,3 +31,4 @@ class AirConditioner:
 
     def get_temperature(self):
         return self.temperature
+

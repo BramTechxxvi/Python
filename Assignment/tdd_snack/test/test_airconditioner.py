@@ -35,3 +35,6 @@ class TestAirConditioner(unittest.TestCase):
         self.assertEqual(my_switch.increase_temperature() + 4, 21)
         for num in range(1, 10): my_switch.decrease_temperature()
         self.assertEqual(my_switch.get_temperature(), 16)
+
+if __name__ == '__main__':
+    unittest.main()
