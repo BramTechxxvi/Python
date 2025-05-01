@@ -1,5 +1,5 @@
 from thing.things import Things
 
 
-class LivingThings(Things):
+class NonLivingThings(Things):
     pass
