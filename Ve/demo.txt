@@ -1,0 +1,10 @@
+1   we   2
+2   qw   3
+3   sd   4
+4   hy   5
+5   sc   6
+6   jv   7
+7   sc   8
+8   df   9
+9   df   0
+10   dfe   7
